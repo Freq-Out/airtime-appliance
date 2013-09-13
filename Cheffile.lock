@@ -1,0 +1,38 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apache2 (1.7.0)
+    apt (2.1.1)
+    aws (0.101.4)
+    build-essential (1.4.2)
+    database (1.4.0)
+      aws (>= 0.0.0)
+      mysql (>= 1.3.0)
+      postgresql (>= 1.0.0)
+      xfs (>= 0.0.0)
+    erlang (1.3.2)
+      apt (>= 1.7.0)
+      build-essential (>= 0.0.0)
+      yum (>= 0.5.0)
+    icecast2 (0.0.1)
+    mysql (3.0.4)
+      build-essential (> 1.1.0)
+      openssl (>= 0.0.0)
+    openssl (1.1.0)
+    postgresql (3.0.4)
+      apt (>= 0.0.0)
+      build-essential (>= 0.0.0)
+      openssl (>= 0.0.0)
+    rabbitmq (2.3.0)
+      erlang (>= 0.9.0)
+    xfs (1.1.0)
+    yum (2.3.2)
+
+DEPENDENCIES
+  apache2 (= 1.7.0)
+  apt (= 2.1.1)
+  database (= 1.4.0)
+  icecast2 (= 0.0.1)
+  postgresql (= 3.0.4)
+  rabbitmq (= 2.3.0)
+

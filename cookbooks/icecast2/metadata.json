@@ -1,0 +1,29 @@
+{
+  "replacing": {
+  },
+  "suggestions": {
+  },
+  "dependencies": {
+  },
+  "groupings": {
+  },
+  "platforms": {
+  },
+  "long_description": "Description\n===========\n\nInstalls icecast2 server package.\n\nRequirements\n============\n\nPlatform\n--------\n\nTested on Debian 6, but should work on recent Debian or Ubuntu servers.\nNot tested on RedHat based distributions.\n\nAttributes\n==========\n\nAll attributes have a decent default value set in the default.rb attributes file.\n\n## Initscript default file parameters (/etc/default/icecast2)\n\nUserid and groupid (name or ID) the daemon should *start* under.\nYou may override it to root/root if you need to bind a <1024 port, then set\n`node['icecast2']['security']['changeowner']['user']` and\n`node['icecast2']['security']['changeowner']['group']`\nto something like icecast2/icecast, so the icecast daemon drops privileges right after.\n\n* `node['icecast2']['userid']` - userid (name or ID) the daemon should *start* under.\n* `node['icecast2']['groupid']` - groupid (name or ID) the daemon should *start* under.\n\n## Main icecast2 config file parameters (/etc/icecast2/icecast.xml)\n\n### Limits\n\n* `node['icecast2']['limits']['clients']` - Total number of concurrent clients supported.\n* `node['icecast2']['limits']['sources']` - Maximum number of connected sources supported.\n* `node['icecast2']['limits']['threadpool']` - Number of threads that are started to\n  handle client connections\n* `node['icecast2']['limits']['source-timeout']` - If a connected source does not send any\n  data within this timeout period (in seconds), then the source connection will be removed\n  from the server\n\n### Server authentication\n\n* `node['icecast2']['authentication']['source-password']` - The unencrypted password used\n  by sources to connect to icecast2.\n* `node['icecast2']['authentication']['relay-password']` - Used in the master server as\n  part of the authentication when a slave requests the list of streams to relay. \n* `node['icecast2']['authentication']['admin-user']` - The username used for all\n  administration functions.\n* `node['icecast2']['authentication']['admin-password']` - The password used for all\n  administration functions.\n\n### Server listen\n\nTODO : there may be multiple listen-socket elements, this should be an array\n\n* `node['icecast2']['listen-socket']['port']` - The TCP port that will be used to accept\n client connections.\n\n### Global parameters\n\n* `node['icecast2']['fileserve']` - This flag turns on the icecast2 fileserver from which\n  static files can be served.\n\n### Security parameters\n\n* `node['icecast2']['security']['changeowner']['user']` - User that will own the icecast\n  process after it is started. \n* `node['icecast2']['security']['changeowner']['group']` - Group that will own the icecast\n  process after it is started. \n\nRecipes\n=======\n\nThis cookbook provides only the default recipe.\nIt installs the native distribution package through the package manager and sets up the\nconfiguration.\n\nUsage\n=====\n\nInclude the recipe on your node or role.\nModify the attributes as required in your role to change how various configuration is\napplied per the attributes section above. In general, override attributes in the role\nshould be used when changing attributes.\n\nLicense and Author\n==================\n\n- Author:: Ronnie Garcia (<community@ovea.com>)\n- Copyright:: 2013, OVEA\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n\n",
+  "name": "icecast2",
+  "attributes": {
+  },
+  "providing": {
+  },
+  "conflicting": {
+  },
+  "maintainer": "Ronnie Garcia, OVEA, http://www.ovea.com",
+  "recipes": {
+  },
+  "recommendations": {
+  },
+  "license": "Apache 2.0",
+  "version": "0.0.1",
+  "description": "Installs/Configures icecast2",
+  "maintainer_email": "contact@ovea.com"
+}
