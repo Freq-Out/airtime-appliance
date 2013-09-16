@@ -18,8 +18,16 @@ $ ./bin/librarian-chef install
 
 ## Launch 
 
+* VMware Fusion
+
 ````
 $ vagrant up --provider=vmware_fusion
+````
+
+* VirtualBox
+
+````
+$ vagrant up --provider=virtualbox
 ````
 
 ## Connect
