@@ -14,4 +14,4 @@ cookbook_path          ["#{current_dir}/../cookbooks", "#{current_dir}/../site-c
 cookbook_copyright     "Freq-Out"
 cookbook_license       "All Right Reserved"
 cookbook_email         "contact@freq-out.com"
-
+role_path							 ["#{current_dir}/../roles"]

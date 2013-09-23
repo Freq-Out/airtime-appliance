@@ -20,6 +20,9 @@ GEM
     highline (1.6.19)
     ipaddress (0.8.0)
     json (1.7.7)
+    knife-role-spaghetti (0.0.5)
+      chef (>= 10.12)
+      ruby-graphviz (~> 1.0.9)
     librarian (0.1.1)
       highline
       thor (~> 0.15)
@@ -50,6 +53,7 @@ GEM
       yajl-ruby
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-graphviz (1.0.9)
     systemu (2.5.2)
     thor (0.18.1)
     yajl-ruby (1.1.0)
@@ -59,4 +63,5 @@ PLATFORMS
 
 DEPENDENCIES
   chef (= 11.6.0)
+  knife-role-spaghetti
   librarian-chef (= 0.0.1)

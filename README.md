@@ -52,3 +52,8 @@ Airtime timezone is optionnaly to be configured
 
 Enter valid credentials into Airtime if needed
 
+## Roles dependencies
+
+![Airtime Chef Roles Dependencies Graph][1]
+[1]: ./role-spaghetti.png "Airtime Chef Roles Dependencies Graph"
+
