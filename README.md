@@ -65,7 +65,9 @@ Airtime timezone is optionnaly to be configured
 
 Enter valid credentials into Airtime if needed
 
-## Roles dependencies
+## Chef Roles dependencies
+
+(updated by issuing `knife role spaghetti`)
 
 ![Airtime Chef Roles Dependencies Graph][1]
 [1]: ./role-spaghetti.png "Airtime Chef Roles Dependencies Graph"
