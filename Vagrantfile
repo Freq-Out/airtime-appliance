@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "airtime-vm"
   
   config.vm.network :public_network
+  config.vm.network "forwarded_port", guest: 80, host: 8080
   
   config.vm.box = "precise64"
   
