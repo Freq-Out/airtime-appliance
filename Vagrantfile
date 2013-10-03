@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # we want latest chef version available
   config.omnibus.chef_version = :latest
   config.vm.provider "vmware_fusion" do |vmware|
-    vmware.gui = true
+    #vmware.gui = true
     #vmware.box = "precise64"
   end
   
