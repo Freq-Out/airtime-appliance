@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb, override|
     #override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    vb.customize ["modifyvm", :id, "--memory", "512"]
   end
   
   config.vm.provision :chef_solo do |chef|
