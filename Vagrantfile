@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "vmware_fusion" do |vmware|
     #vmware.gui = true
     #vmware.box = "precise64"
+    vmware.box_url = "http://files.vagrantup.com/precise64_vmware.box"
   end
   
   config.vm.provider "virtualbox" do |vb, override|
