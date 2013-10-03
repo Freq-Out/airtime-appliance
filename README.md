@@ -11,16 +11,23 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 ## Prerequisites
 
 * [Virtualbox](https://www.virtualbox.org/) or VMware Fusion
-* [Vagrant](http://downloads.vagrantup.com/)
+* [Vagrant](http://downloads.vagrantup.com/) and a Ubuntu Box
 * a working ruby dev environment: try [homebrew](http://brew.sh) for a good start
 
 ## Install
+
+Install vagrant-omnibus:
+
+````
+$ vagrant plugin install vagrant-omnibus
+````
+
+Then launch bundler: 
 
 ````
 $ bundle install --binstubs
 $ ./bin/librarian-chef install
 ````
-
 
 ## Launch 
 
@@ -36,7 +43,13 @@ $ vagrant up --provider=vmware_fusion
 $ vagrant up --provider=virtualbox
 ````
 
-## Connect
+## Web Access
+
+Access your new Airtime installation here: [http://localhost:8080](http://localhost:8080)
+
+## SSH Access
+
+If needed, you can access the box by SSH.
 
 ````
 $ vagrant ssh
