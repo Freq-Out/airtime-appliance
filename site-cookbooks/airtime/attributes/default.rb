@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: apt
-# Attributes:: default
+# Cookbook Name:: airtime
+# Attribute File:: default
 #
-# Copyright 2009-2013, Opscode, Inc.
+# Copyright 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,10 +17,8 @@
 # limitations under the License.
 #
 
-default['apt']['cacher-client']['restrict_environment'] = false
-default['apt']['cacher_dir'] = '/var/cache/apt-cacher-ng'
-default['apt']['cacher_interface'] = nil
-default['apt']['cacher_port'] = 3142
-default['apt']['caching_server'] = false
-default['apt']['compiletime'] = false
-default['apt']['key_proxy'] = ''
+default['airtime']['db']['user']        = "airtime"
+default['airtime']['db']['password']    = "airtime"
+default['airtime']['db']['name']        = "airtime"
+default['airtime']['db']['host']        = "127.0.0.1"
+default['airtime']['db']['port']        = "5432"

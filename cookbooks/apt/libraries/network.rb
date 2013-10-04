@@ -1,7 +1,8 @@
 #
-# Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Copyright:: Copyright (c) 2011 Opscode, Inc.
-# License:: Apache License, Version 2.0
+# Cookbook Name:: apt
+# library:: network
+#
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,19 +17,17 @@
 # limitations under the License.
 #
 
-require File.join(File.dirname(__FILE__), 'resource_database_user')
-require File.join(File.dirname(__FILE__), 'provider_database_sql_server_user')
-
-class Chef
-  class Resource
-    class SqlServerDatabaseUser < Chef::Resource::DatabaseUser
-
-      def initialize(name, run_context=nil)
-        super
-        @resource_name = :sql_server_database_user
-        @provider = Chef::Provider::Database::SqlServerUser
+module ::Apt
+  def interface_ipaddress(host, interface)
+    if interface
+      addresses = host['network']['interfaces'][interface]['addresses']
+      addresses.select do |ip, data|
+        if data['family'].eql?('inet')
+          return ip
+        end
       end
-
+    else
+      return host.ipaddress
     end
   end
 end
