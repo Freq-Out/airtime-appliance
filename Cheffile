@@ -3,10 +3,9 @@
 site 'http://community.opscode.com/api/v1'
 
 cookbook 'apache2', '1.7.0'
-cookbook 'apt', '2.1.1'
-cookbook 'database', '1.4.0'
+cookbook 'apt', '2.2.0'
 cookbook 'postgresql', '3.0.4'
 cookbook 'rabbitmq', '2.3.0'
 cookbook 'icecast2', '0.0.1'
 cookbook 'ubuntu', '1.1.2'
-
+cookbook 'database', '1.5.0'

@@ -8,7 +8,8 @@ run_list(
 
 override_attributes(
 "ubuntu" => {
-    "archive_url" => "http://fr.archive.ubuntu.com/ubuntu"
+    "archive_url" => "http://fr.archive.ubuntu.com/ubuntu",
+    "locale"      => "en_US.UTF-8"
   }
 )
   
