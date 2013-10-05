@@ -8,19 +8,17 @@ Vagrant.configure("2") do |config|
   #config.vm.network :public_network
   config.vm.network "forwarded_port", guest: 80, host: 8080
   
-  config.vm.box = "precise64"
-  
   # we want latest chef version available
   config.omnibus.chef_version = :latest
   config.vm.provider "vmware_fusion" do |vmware|
     #vmware.gui = true
-    #vmware.box = "precise64"
+    vmware.box = "precise64"
     vmware.box_url = "http://files.vagrantup.com/precise64_vmware.box"
   end
   
   config.vm.provider "virtualbox" do |vb, override|
-    #override.vm.box = "precise64"
-    override.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    override.vm.box = "precise-server-cloudimg-64"
+    override.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
     vb.customize ["modifyvm", :id, "--memory", "512"]
   end
   
