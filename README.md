@@ -45,7 +45,10 @@ $ vagrant up --provider=virtualbox
 
 ## Web Access
 
-Access your new Airtime installation here: [http://localhost:8080](http://localhost:8080)
+Access your new Airtime installation: 
+
+* Airtime web GUI: [http://localhost:8080](http://localhost:8080)
+* Icecast stream: [http://localhost:8000/airtime_128](http://localhost:8000/airtime_128)
 
 ## SSH Access
 
