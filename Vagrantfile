@@ -11,10 +11,11 @@ Vagrant.configure("2") do |config|
   
   # we want latest chef version available
   config.omnibus.chef_version = :latest
-  config.vm.provider "vmware_fusion" do |vmware|
+  
+  config.vm.provider "vmware_fusion" do |vmwarem, override|
     #vmware.gui = true
-    vmware.box = "precise64"
-    vmware.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+    override.vm.box = "precise64"
+    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
   end
   
   config.vm.provider "virtualbox" do |vb, override|
