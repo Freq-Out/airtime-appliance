@@ -21,10 +21,10 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 ### Vagrant Environment
 You need to have [Vagrant-Bindle](https://github.com/fgrehm/bindler) installed: 
 
-``
+```
 $ vagrant plugin install bindler
 $ vagrant bindler setup
-``
+```
 
 Install automatically required Vagrant plugins:
 
