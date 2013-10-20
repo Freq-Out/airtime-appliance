@@ -1,3 +1,5 @@
 tmp/
 bin/
 .vagrant
+cookbooks/
+site-cookbooks/
