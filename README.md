@@ -4,16 +4,17 @@ This is an example of an Airtime Chef automated deployment, that we use internal
 
 This is **NOT** meant for production use.
 
-It uses Opscode Chef (solo) 11.8 and Librarian-Chef.
+It uses Opscode Chef (solo) 11.x and Librarian-Chef.
 
 Software includes apache2, php5, icecast2, postgresql, airtime.
 
 ## Prerequisites
 
 * [Virtualbox](https://www.virtualbox.org/) or VMware Fusion
-* [Vagrant](http://downloads.vagrantup.com/) 1.2+ and a Ubuntu Box
+* [Vagrant](http://downloads.vagrantup.com/) and a Ubuntu Box (there's an excellent [Vagrant VMware plugin](http://www.vagrantup.com/vmware))
 * a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start
 * [Vagrant-Bindle](https://github.com/fgrehm/bindler) to handle Vagrant plugins.
+* a working ruby dev environment: try [homebrew](http://brew.sh) for a good start on OSX
 
 ## Install
 
