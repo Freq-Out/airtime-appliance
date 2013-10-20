@@ -11,18 +11,31 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 ## Prerequisites
 
 * [Virtualbox](https://www.virtualbox.org/) or VMware Fusion
-* [Vagrant](http://downloads.vagrantup.com/) and a Ubuntu Box
-* a working ruby dev environment: try [homebrew](http://brew.sh) for a good start
+* [Vagrant](http://downloads.vagrantup.com/) 1.2+ and a Ubuntu Box
+* a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start
+* [Vagrant-Bindle](https://github.com/fgrehm/bindler) to handle Vagrant plugins.
 
 ## Install
 
-Install vagrant-omnibus:
+### Vagrant Environment
+You need to have [Vagrant-Bindle](https://github.com/fgrehm/bindler) installed: 
 
-````
-$ vagrant plugin install vagrant-omnibus
-````
+``
+$ vagrant plugin install bindler
+$ vagrant bindler setup
+``
 
-Then launch bundler: 
+Install automatically required Vagrant plugins:
+
+``
+$ vagrant plugin bundle
+``
+
+### Chef Development Environment
+
+If you need to hack on cookbooks, you might need Chef binaries, tools and plugins.
+
+Launch bundler: 
 
 ````
 $ bundle install --binstubs
@@ -33,15 +46,15 @@ $ ./bin/librarian-chef install
 
 * VMware Fusion
 
-````
+``
 $ vagrant up --provider=vmware_fusion
-````
+``
 
 * VirtualBox
 
-````
+``
 $ vagrant up --provider=virtualbox
-````
+``
 
 ## Web Access
 
@@ -63,10 +76,6 @@ $ vagrant ssh
 ### Timezone
 
 Airtime timezone is optionnaly to be configured
-
-### Icecast2 
-
-Enter valid credentials into Airtime if needed
 
 ## Chef Roles dependencies
 
