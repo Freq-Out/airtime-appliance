@@ -30,11 +30,28 @@ SITE
     xfs (1.1.0)
     yum (2.3.2)
 
+GIT
+  remote: https://github.com/Freq-Out/chef-airtime
+  ref: v0.1.1
+  sha: bd9550c5e48fdaedaf3e3ab9a274bb2cae807610
+  specs:
+    airtime (0.1.1)
+      database (>= 0.0.0)
+
+GIT
+  remote: https://github.com/Freq-Out/chef-phauneradio
+  ref: v0.1.0
+  sha: 521f8de626e4ed4eda0b9ac03eb941b94a4ed136
+  specs:
+    phauneradio (0.1.0)
+
 DEPENDENCIES
+  airtime (>= 0)
   apache2 (= 1.7.0)
   apt (= 2.2.0)
   database (= 1.5.0)
   icecast2 (= 0.0.1)
+  phauneradio (>= 0)
   postgresql (= 3.0.4)
   rabbitmq (= 2.3.0)
   ubuntu (= 1.1.2)
