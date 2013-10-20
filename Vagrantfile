@@ -12,8 +12,14 @@ Vagrant.configure("2") do |config|
   # we want latest chef version available
   config.omnibus.chef_version = :latest
   
-  config.vm.provider "vmware_fusion" do |vmwarem, override|
+  # Let's use vagrant-cachier to speed things up
+  config.cache.auto_detect = true
+  
+  config.vm.provider "vmware_fusion" do |vmware, override|
     #vmware.gui = true
+    # https://github.com/fgrehm/vagrant-cachier/issues/24#issuecomment-20807677
+    #override.vm.network :private_network
+    override.cache.enable_nfs = true
     override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
   end
