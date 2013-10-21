@@ -1,4 +1,4 @@
-# Airtime-Chef Deployment
+# Airtime Appliance Deployment
 
 This is an example of an Airtime Chef automated deployment, that we use internally for easily testing new releases and features. 
 
