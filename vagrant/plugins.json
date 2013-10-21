@@ -1,5 +1,6 @@
 [
   {"vagrant-cachier": "0.3.3"},
   {"vagrant-librarian-chef": "0.1.4"},
-  {"vagrant-omnibus": "1.1.2"}
+  {"vagrant-omnibus": "1.1.2"},
+	{"sahara": "0.0.16"}
 ]
