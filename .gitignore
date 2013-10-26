@@ -3,3 +3,5 @@ bin/
 .vagrant
 cookbooks/
 site-cookbooks/
+shared/*
+.DS_Store
