@@ -49,5 +49,3 @@ Vagrant.configure("2") do |config|
     }
   end
 end
-
-#node['postgresql']['password']['postgres']
