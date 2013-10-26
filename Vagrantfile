@@ -3,8 +3,6 @@
 
 Vagrant.configure("2") do |config|
   
-  config.vm.hostname = "airtime-vm"
-  
   #config.vm.network :public_network
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 8000, host: 8000
@@ -30,24 +28,55 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--memory", "512"]
   end
   
-  config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
-    chef.data_bags_path = "data_bags"
-    chef.roles_path = "roles"
-    chef.add_role 'base'
-    chef.add_role 'web'
-    chef.add_role 'db'
-    chef.add_role 'icecast'
-    chef.add_role 'rabbitmq'
-    chef.add_role 'airtime'
-    chef.json = {
-      'postgresql' => {
-        'password' => {
-          'postgres' => 'uberpassword'
+  # This is the default, regular airtime profile
+  config.vm.define "airtime", primary: true do |config|
+    
+    config.vm.hostname = "airtime-vm"
+    
+    config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
+      chef.data_bags_path = "data_bags"
+      chef.roles_path = "roles"
+      chef.add_role 'base'
+      chef.add_role 'web'
+      chef.add_role 'db'
+      chef.add_role 'icecast'
+      chef.add_role 'rabbitmq'
+      chef.add_role 'airtime'
+      chef.json = {
+        'postgresql' => {
+          'password' => {
+            'postgres' => 'uberpassword'
+          }
         }
       }
-    }
+    end
   end
+  
+  # This is the undocumented ultrasecret phauneradio profile
+  config.vm.define "phauneradio" do |config|
+    
+    config.vm.hostname = "phauneradio-vm"
+    
+    config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
+      chef.data_bags_path = "data_bags"
+      chef.roles_path = "roles"
+      chef.add_role 'base'
+      chef.add_role 'web'
+      chef.add_role 'db'
+      chef.add_role 'icecast'
+      chef.add_role 'rabbitmq'
+      chef.add_role 'airtime'
+      chef.add_recipe 'phauneradio'
+      chef.json = {
+        'postgresql' => {
+          'password' => {
+            'postgres' => 'uberpassword'
+          }
+        }
+      }
+    end
+  end
+  
 end
-
-#node['postgresql']['password']['postgres']

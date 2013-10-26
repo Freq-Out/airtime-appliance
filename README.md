@@ -45,16 +45,18 @@ $ ./bin/librarian-chef install
 
 ## Launch 
 
+This is an example to launch the default "airtime" Vagrant profile. 
+
 * VMware Fusion
 
 ``
-$ vagrant up --provider=vmware_fusion
+$ vagrant up airtime --provider=vmware_fusion
 ``
 
 * VirtualBox
 
 ``
-$ vagrant up --provider=virtualbox
+$ vagrant up airtime --provider=virtualbox
 ``
 
 ## Web Access
