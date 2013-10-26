@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Airtime-appliance : Provides easy Sourcefabric Airtime deployments on virtual machines for testing purposes" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Airtime-appliance</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Freq-Out/airtime-appliance">View on GitHub</a>
+
+          <h1 id="project_title">Airtime-appliance</h1>
+          <h2 id="project_tagline">Provides easy Sourcefabric Airtime deployments on virtual machines for testing purposes</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Freq-Out/airtime-appliance/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Freq-Out/airtime-appliance/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="airtime-appliance-deployment" class="anchor" href="#airtime-appliance-deployment"><span class="octicon octicon-link"></span></a>Airtime Appliance Deployment</h1>
+
+<p>This is an example of an Airtime Chef automated deployment, that we use internally for easily testing new releases and features. </p>
+
+<p>This is <strong>NOT</strong> meant for production use.</p>
+
+<p>It uses Opscode Chef (solo) 11.x and Librarian-Chef.</p>
+
+<p>Software includes apache2, php5, icecast2, postgresql, airtime.</p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<ul>
+<li>
+<a href="https://www.virtualbox.org/">Virtualbox</a> or VMware Fusion</li>
+<li>
+<a href="http://downloads.vagrantup.com/">Vagrant</a> and a Ubuntu Box (there's an excellent <a href="http://www.vagrantup.com/vmware">Vagrant VMware plugin</a>)</li>
+<li>a working ruby dev environment with bundler: try <a href="http://brew.sh">homebrew</a> for a good start</li>
+<li>
+<a href="https://github.com/fgrehm/bindler">Vagrant-Bindle</a> to handle Vagrant plugins.</li>
+<li>a working ruby dev environment: try <a href="http://brew.sh">homebrew</a> for a good start on OSX</li>
+</ul><h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>
+<a name="vagrant-environment" class="anchor" href="#vagrant-environment"><span class="octicon octicon-link"></span></a>Vagrant Environment</h3>
+
+<p>You need to have <a href="https://github.com/fgrehm/bindler">Vagrant-Bindle</a> installed: </p>
+
+<pre><code>$ vagrant plugin install bindler
+$ vagrant bindler setup
+</code></pre>
+
+<p>Install automatically required Vagrant plugins:</p>
+
+<p><code>
+$ vagrant plugin bundle
+</code></p>
+
+<h3>
+<a name="chef-development-environment" class="anchor" href="#chef-development-environment"><span class="octicon octicon-link"></span></a>Chef Development Environment</h3>
+
+<p>If you need to hack on cookbooks, you might need Chef binaries, tools and plugins.</p>
+
+<p>Launch bundler: </p>
+
+<pre><code>$ bundle install --binstubs
+$ ./bin/librarian-chef install
+</code></pre>
+
+<h2>
+<a name="launch" class="anchor" href="#launch"><span class="octicon octicon-link"></span></a>Launch</h2>
+
+<p>This is an example to launch the default "airtime" Vagrant profile. </p>
+
+<ul>
+<li>VMware Fusion</li>
+</ul><p><code>
+$ vagrant up airtime --provider=vmware_fusion
+</code></p>
+
+<ul>
+<li>VirtualBox</li>
+</ul><p><code>
+$ vagrant up airtime --provider=virtualbox
+</code></p>
+
+<h2>
+<a name="web-access" class="anchor" href="#web-access"><span class="octicon octicon-link"></span></a>Web Access</h2>
+
+<p>Access your new Airtime installation: </p>
+
+<ul>
+<li>Airtime web GUI: <a href="http://localhost:8080">http://localhost:8080</a>
+</li>
+<li>Icecast stream: <a href="http://localhost:8000/airtime_128">http://localhost:8000/airtime_128</a>
+</li>
+</ul><h2>
+<a name="ssh-access" class="anchor" href="#ssh-access"><span class="octicon octicon-link"></span></a>SSH Access</h2>
+
+<p>If needed, you can access the box by SSH.</p>
+
+<pre><code>$ vagrant ssh
+</code></pre>
+
+<h2>
+<a name="optional-configuration-steps" class="anchor" href="#optional-configuration-steps"><span class="octicon octicon-link"></span></a>Optional Configuration Steps</h2>
+
+<h3>
+<a name="timezone" class="anchor" href="#timezone"><span class="octicon octicon-link"></span></a>Timezone</h3>
+
+<p>Airtime timezone is optionnaly to be configured</p>
+
+<h2>
+<a name="chef-roles-dependencies" class="anchor" href="#chef-roles-dependencies"><span class="octicon octicon-link"></span></a>Chef Roles dependencies</h2>
+
+<p>(updated by issuing <code>knife role spaghetti</code>)</p>
+
+<p><img src="./role-spaghetti.png" alt="Airtime Chef Roles Dependencies Graph" title="Airtime Chef Roles Dependencies Graph"></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Airtime-appliance maintained by <a href="https://github.com/Freq-Out">Freq-Out</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
