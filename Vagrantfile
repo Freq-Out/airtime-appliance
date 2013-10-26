@@ -9,9 +9,13 @@ Vagrant.configure("2") do |config|
   
   # we want latest chef version available
   config.omnibus.chef_version = :latest
-  
+    
   # Let's use vagrant-cachier to speed things up
   config.cache.auto_detect = true
+  
+  # we want an automatic shared & synced folder
+  config.vm.synced_folder "shared", "/srv/airtime/stor/shared",
+    owner: "root", group: "www-data"
   
   config.vm.provider "vmware_fusion" do |vmware, override|
     #vmware.gui = true
