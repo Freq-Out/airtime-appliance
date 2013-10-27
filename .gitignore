@@ -6,3 +6,4 @@ site-cookbooks/
 shared/*
 !shared/README.md
 .DS_Store
+template/*/packer_cache/
