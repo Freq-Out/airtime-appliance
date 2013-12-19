@@ -1,8 +1,6 @@
 tmp/
 bin/
 .vagrant
-cookbooks/
-site-cookbooks/
 shared/*
 !shared/README.md
 .DS_Store
