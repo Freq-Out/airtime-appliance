@@ -8,3 +8,4 @@ shared/*
 .DS_Store
 template/*/packer_cache/
 scripts/backup.conf
+template/*/output-virtualbox/
