@@ -74,7 +74,8 @@
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "512"],
       ["modifyvm", "{{.Name}}", "--cpus", "1"]
-    ]
+    ],
+    'headless' : true
   }],
   "provisioners": [{
     "type": "shell",
