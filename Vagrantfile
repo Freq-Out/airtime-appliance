@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   # we want an automatic shared & synced folder
   config.vm.synced_folder "shared", "/srv/airtime/stor/shared",
     owner: "root", group: "www-data"
-  
+
   config.vm.provider "vmware_fusion" do |vmware, override|
     #vmware.gui = true
     # https://github.com/fgrehm/vagrant-cachier/issues/24#issuecomment-20807677
@@ -24,6 +24,8 @@ Vagrant.configure("2") do |config|
     override.cache.enable_nfs = true
     override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+    vmware.vmx["memsize"] = "1024"
+    vmware.vmx["numvcpus"] = "2"
   end
   
   config.vm.provider "virtualbox" do |vb, override|
