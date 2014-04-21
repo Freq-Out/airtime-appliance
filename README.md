@@ -4,17 +4,16 @@ This is an example of an Airtime Chef automated deployment, that we use internal
 
 This is **NOT** meant for production use.
 
-It uses Opscode Chef (solo) 11.x and Librarian-Chef.
+It uses Vagrant, Opscode Chef (solo) 11.x Berkshelf.
 
 Software includes apache2, php5, icecast2, postgresql, airtime.
 
 ## Prerequisites
 
-* [Virtualbox](https://www.virtualbox.org/) or VMware Fusion
-* [Vagrant](http://downloads.vagrantup.com/) and a Ubuntu Box (there's an excellent [Vagrant VMware plugin](http://www.vagrantup.com/vmware))
-* a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start
+* [Virtualbox](https://www.virtualbox.org/) or (VMware)[http://www.vmware.com/] or anything that works for you with [Vagrant](http://www.vagrantup.com/).
+* [Vagrant](http://downloads.vagrantup.com/) '>= 1.5.2' and a Ubuntu Box (there's an excellent [Vagrant VMware plugin](http://www.vagrantup.com/vmware))
+* a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start on OSX
 * some Vagrant plugins (unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore)
-* a working ruby dev environment: try [homebrew](http://brew.sh) for a good start on OSX
 
 ## Install
 
@@ -23,19 +22,27 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 Unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore.
 
     $ vagrant plugin install vagrant-cachier
-    $ vagrant plugin install vagrant-librarian-chef
+    $ vagrant plugin install vagrant-berkshelf --plugin-version 2.0.1
     $ vagrant plugin install vagrant-omnibus
 
-### Chef Development Environment
+### Chef Development Kit
 
-If you need to hack on cookbooks, you might need Chef binaries, tools and plugins.
+If you need to hack on cookbooks, you might need Chef binaries, tools and plugins. Go take a look at [Chef-DK](http://www.getchef.com/downloads/chef-dk/), the Chef Development Kit. It contains everything you neeed.
 
-Launch bundler: 
+### Berkshelf 
 
-````
-$ bundle install --binstubs
-$ ./bin/librarian-chef install
-````
+To manage cookbook dependencies, install [Berkshelf](http://berkshelf.com/): 
+
+    $ bundle install --binstubs
+    $ ./bin/berks vendor cookbooks
+
+Or if you use the above Chef-DK, just 
+
+    $ berks vendor cookbooks
+
+Here's a dependency graph: 
+
+![Chef Cookbook Dependencies Graph][1]
 
 ## Launch 
 
@@ -78,6 +85,8 @@ Airtime timezone is optionnaly to be configured
 
 (updated by issuing `knife role spaghetti`)
 
-![Airtime Chef Roles Dependencies Graph][1]
-[1]: ./role-spaghetti.png "Airtime Chef Roles Dependencies Graph"
+![Airtime Chef Roles Dependencies Graph][2]
+
+[1]: ./graph.png "Chef Dependencies Graph"
+[2]: ./role-spaghetti.png "Airtime Chef Roles Dependencies Graph"
 
