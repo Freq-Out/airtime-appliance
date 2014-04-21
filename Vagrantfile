@@ -42,6 +42,7 @@ Vagrant.configure("2") do |config|
     
     config.vm.hostname = "airtime-vm"
     
+    config.vm.provision :shell, :inline => "apt-get update"
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
       chef.data_bags_path = "data_bags"
@@ -67,6 +68,7 @@ Vagrant.configure("2") do |config|
     
     config.vm.hostname = "phauneradio-vm"
     
+    config.vm.provision :shell, :inline => "apt-get update"
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
       chef.data_bags_path = "data_bags"
