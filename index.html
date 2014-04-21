@@ -38,7 +38,7 @@
 
 <p>This is <strong>NOT</strong> meant for production use.</p>
 
-<p>It uses Opscode Chef (solo) 11.x and Librarian-Chef.</p>
+<p>It uses Vagrant, Opscode Chef (solo) 11.x Berkshelf.</p>
 
 <p>Software includes apache2, php5, icecast2, postgresql, airtime.</p>
 
@@ -47,41 +47,53 @@
 
 <ul>
 <li>
-<a href="https://www.virtualbox.org/">Virtualbox</a> or VMware Fusion</li>
+<a href="https://www.virtualbox.org/">Virtualbox</a> or (VMware)[<a href="http://www.vmware.com/">http://www.vmware.com/</a>] or anything that works for you with <a href="http://www.vagrantup.com/">Vagrant</a>.</li>
 <li>
-<a href="http://downloads.vagrantup.com/">Vagrant</a> and a Ubuntu Box (there's an excellent <a href="http://www.vagrantup.com/vmware">Vagrant VMware plugin</a>)</li>
-<li>a working ruby dev environment with bundler: try <a href="http://brew.sh">homebrew</a> for a good start</li>
-<li>
-<a href="https://github.com/fgrehm/bindler">Vagrant-Bindle</a> to handle Vagrant plugins.</li>
-<li>a working ruby dev environment: try <a href="http://brew.sh">homebrew</a> for a good start on OSX</li>
+<a href="http://downloads.vagrantup.com/">Vagrant</a> '&gt;= 1.5.2' and a Ubuntu Box (there's an excellent <a href="http://www.vagrantup.com/vmware">Vagrant VMware plugin</a>)</li>
+<li>a working ruby dev environment with bundler: try <a href="http://brew.sh">homebrew</a> for a good start on OSX</li>
+<li>some Vagrant plugins (unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore)</li>
 </ul><h2>
 <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <h3>
 <a name="vagrant-environment" class="anchor" href="#vagrant-environment"><span class="octicon octicon-link"></span></a>Vagrant Environment</h3>
 
-<p>You need to have <a href="https://github.com/fgrehm/bindler">Vagrant-Bindle</a> installed: </p>
+<p>Unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore.</p>
 
-<pre><code>$ vagrant plugin install bindler
-$ vagrant bindler setup
+<p>We'll use <a href="http://fgrehm.viewdocs.io/vagrant-cachier">Vagrant-Cachier</a></p>
+
+<pre><code>$ vagrant plugin install vagrant-cachier
 </code></pre>
 
-<p>Install automatically required Vagrant plugins:</p>
+<p>and <a href="https://github.com/schisamo/vagrant-omnibus">Vagrant-Omnibus</a> to ensure the desired version of Chef is installed.</p>
 
-<p><code>
-$ vagrant plugin bundle
-</code></p>
+<pre><code>$ vagrant plugin install vagrant-omnibus
+
+$ vagrant plugin install vagrant-berkshelf --plugin-version 2.0.1
+</code></pre>
 
 <h3>
-<a name="chef-development-environment" class="anchor" href="#chef-development-environment"><span class="octicon octicon-link"></span></a>Chef Development Environment</h3>
+<a name="chef-development-kit" class="anchor" href="#chef-development-kit"><span class="octicon octicon-link"></span></a>Chef Development Kit</h3>
 
-<p>If you need to hack on cookbooks, you might need Chef binaries, tools and plugins.</p>
+<p>If you need to hack on cookbooks, you might need Chef binaries, tools and plugins. Go take a look at <a href="http://www.getchef.com/downloads/chef-dk/">Chef-DK</a>, the Chef Development Kit. It contains everything you neeed.</p>
 
-<p>Launch bundler: </p>
+<h3>
+<a name="berkshelf" class="anchor" href="#berkshelf"><span class="octicon octicon-link"></span></a>Berkshelf</h3>
+
+<p>To manage cookbook dependencies, install <a href="http://berkshelf.com/">Berkshelf</a>: </p>
 
 <pre><code>$ bundle install --binstubs
-$ ./bin/librarian-chef install
+$ ./bin/berks vendor cookbooks
 </code></pre>
+
+<p>Or if you use the above Chef-DK, just </p>
+
+<pre><code>$ berks vendor cookbooks
+</code></pre>
+
+<p>Here's a dependency graph: </p>
+
+<p><img src="./graph.png" alt="Chef Cookbook Dependencies Graph" title="Chef Dependencies Graph"></p>
 
 <h2>
 <a name="launch" class="anchor" href="#launch"><span class="octicon octicon-link"></span></a>Launch</h2>
