@@ -7,3 +7,4 @@ shared/*
 template/*/packer_cache/
 scripts/backup.conf
 template/*/output-virtualbox/
+cookbooks/
