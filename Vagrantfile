@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     #vmware.gui = true
     # https://github.com/fgrehm/vagrant-cachier/issues/24#issuecomment-20807677
     #override.vm.network :private_network
-    override.cache.enable_nfs = true
+    override.cache.synced_folder_opts = { type: :nfs }
     override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
     vmware.vmx["memsize"] = "1024"
