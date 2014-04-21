@@ -22,9 +22,17 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 
 Unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore.
 
+We'll use [Vagrant-Cachier](http://fgrehm.viewdocs.io/vagrant-cachier)
+
     $ vagrant plugin install vagrant-cachier
-    $ vagrant plugin install vagrant-librarian-chef
+
+and [Vagrant-Omnibus](https://github.com/schisamo/vagrant-omnibus) to ensure the desired version of Chef is installed.
+
     $ vagrant plugin install vagrant-omnibus
+    
+and [Vagrant-Librarian-Chef](https://github.com/jimmycuadra/vagrant-librarian-chef) to install cookbooks.
+
+    $ vagrant plugin install vagrant-librarian-chef
 
 ### Chef Development Environment
 
