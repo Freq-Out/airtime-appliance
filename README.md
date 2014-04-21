@@ -10,7 +10,7 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 
 ## Prerequisites
 
-* [Virtualbox](https://www.virtualbox.org/) or (VMware)[http://www.vmware.com/] or anything that works for you with [Vagrant](http://www.vagrantup.com/).
+* [Virtualbox](https://www.virtualbox.org/) or [VMware](http://www.vmware.com/) or anything that works for you with [Vagrant](http://www.vagrantup.com/).
 * [Vagrant](http://downloads.vagrantup.com/) '>= 1.5.2' and a Ubuntu Box (there's an excellent [Vagrant VMware plugin](http://www.vagrantup.com/vmware))
 * a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start on OSX
 * some Vagrant plugins (unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore)
