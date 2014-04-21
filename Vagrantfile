@@ -49,6 +49,7 @@ Vagrant.configure("2") do |config|
       chef.add_role 'icecast'
       chef.add_role 'rabbitmq'
       chef.add_role 'airtime'
+      chef.custom_config_path = "Vagrantfile.chef"
       chef.json = {
         'postgresql' => {
           'password' => {
