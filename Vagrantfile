@@ -14,12 +14,12 @@ Vagrant.configure("2") do |config|
   config.berkshelf.enabled = true
   
   # Let's use vagrant-cachier to speed things up
-  if Vagrant.has_plugin?("vagrant-cachier")
-    config.cache.scope = :box
-    config.cache.synced_folder_opts = { 
-      type: :nfs 
-    }
-  end
+  # if Vagrant.has_plugin?("vagrant-cachier")
+  #   config.cache.scope = :box
+  #   config.cache.synced_folder_opts = { 
+  #     type: :nfs 
+  #   }
+  # end
   
   # we want an automatic shared & synced folder
   config.vm.synced_folder "shared", "/srv/airtime/stor/shared",
