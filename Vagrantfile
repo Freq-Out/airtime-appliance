@@ -9,7 +9,10 @@ Vagrant.configure("2") do |config|
   
   # we want latest chef version available
   config.omnibus.chef_version = :latest
-    
+  
+  # enable berkshelf integration
+  config.berkshelf.enabled = true
+  
   # Let's use vagrant-cachier to speed things up
   config.cache.auto_detect = true
   
