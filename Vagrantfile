@@ -11,7 +11,12 @@ Vagrant.configure("2") do |config|
   config.omnibus.chef_version = :latest
     
   # Let's use vagrant-cachier to speed things up
-  config.cache.auto_detect = true
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+    config.cache.synced_folder_opts = { 
+      type: :nfs 
+    }
+  end
   
   # we want an automatic shared & synced folder
   config.vm.synced_folder "shared", "/srv/airtime/stor/shared",
@@ -19,9 +24,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "vmware_fusion" do |vmware, override|
     #vmware.gui = true
-    # https://github.com/fgrehm/vagrant-cachier/issues/24#issuecomment-20807677
-    #override.vm.network :private_network
-    override.cache.synced_folder_opts = { type: :nfs }
     override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
     vmware.vmx["memsize"] = "1024"
