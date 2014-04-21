@@ -9,7 +9,10 @@ Vagrant.configure("2") do |config|
   
   # we want latest chef version available
   config.omnibus.chef_version = :latest
-    
+  
+  # enable berkshelf integration
+  config.berkshelf.enabled = true
+  
   # Let's use vagrant-cachier to speed things up
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
@@ -41,6 +44,7 @@ Vagrant.configure("2") do |config|
     
     config.vm.hostname = "airtime-vm"
     
+    config.vm.provision :shell, :inline => "apt-get update"
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
       chef.data_bags_path = "data_bags"
@@ -67,6 +71,7 @@ Vagrant.configure("2") do |config|
     
     config.vm.hostname = "phauneradio-vm"
     
+    config.vm.provision :shell, :inline => "apt-get update"
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
       chef.data_bags_path = "data_bags"

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-site 'http://community.opscode.com/api/v1'
+source "http://api.berkshelf.com"
 
 cookbook 'apache2', '1.8.14'
 cookbook 'apt', '2.3.0'
