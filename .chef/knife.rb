@@ -9,8 +9,6 @@ log_location           STDOUT
 cache_type             'BasicFile'
 cache_options          :path => "#{current_dir}/checksums"
 cookbook_path          ["#{current_dir}/../cookbooks", "#{current_dir}/../site-cookbooks"]
-require 'librarian/chef/integration/knife'
-cookbook_path          ["#{current_dir}/../cookbooks", "#{current_dir}/../site-cookbooks", Librarian::Chef.install_path]
 cookbook_copyright     "Freq-Out"
 cookbook_license       "All Right Reserved"
 cookbook_email         "contact@freq-out.com"
