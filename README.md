@@ -13,24 +13,18 @@ Software includes apache2, php5, icecast2, postgresql, airtime.
 * [Virtualbox](https://www.virtualbox.org/) or VMware Fusion
 * [Vagrant](http://downloads.vagrantup.com/) and a Ubuntu Box (there's an excellent [Vagrant VMware plugin](http://www.vagrantup.com/vmware))
 * a working ruby dev environment with bundler: try [homebrew](http://brew.sh) for a good start
-* [Vagrant-Bindle](https://github.com/fgrehm/bindler) to handle Vagrant plugins.
+* some Vagrant plugins (unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore)
 * a working ruby dev environment: try [homebrew](http://brew.sh) for a good start on OSX
 
 ## Install
 
 ### Vagrant Environment
-You need to have [Vagrant-Bindle](https://github.com/fgrehm/bindler) installed: 
 
-```
-$ vagrant plugin install bindler
-$ vagrant bindler setup
-```
+Unfortunately, as of lately, Vagrant-Bindle isn't maintained anymore.
 
-Install automatically required Vagrant plugins:
-
-``
-$ vagrant plugin bundle
-``
+    $ vagrant plugin install vagrant-cachier
+    $ vagrant plugin install vagrant-librarian-chef
+    $ vagrant plugin install vagrant-omnibus
 
 ### Chef Development Environment
 
