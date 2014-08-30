@@ -1,6 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+required_vagrant_version = '1.2.0'
+if Vagrant::VERSION < required_vagrant_version
+  puts <<-EOF
+You need at least version #{required_vagrant_version} of Vagrant to use this
+project. Get it at http://downloads.vagrantup.com
+  EOF
+
+  exit 1
+end
+
 Vagrant.configure("2") do |config|
   
   #config.vm.network :public_network
@@ -12,6 +22,9 @@ Vagrant.configure("2") do |config|
   
   # enable berkshelf integration
   config.berkshelf.enabled = true
+  
+  # 
+  config.vm.box = "chef/ubuntu-12.04"
   
   # Let's use vagrant-cachier to speed things up
   # if Vagrant.has_plugin?("vagrant-cachier")
@@ -26,17 +39,12 @@ Vagrant.configure("2") do |config|
     owner: "root", group: "www-data"
 
   config.vm.provider "vmware_fusion" do |vmware, override|
-    #vmware.gui = true
-    override.vm.box = "precise64"
-    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
     vmware.vmx["memsize"] = "1024"
     vmware.vmx["numvcpus"] = "2"
   end
   
   config.vm.provider "virtualbox" do |vb, override|
-    override.vm.box = "precise-server-cloudimg-64"
-    override.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
   
   # This is the default, regular airtime profile
